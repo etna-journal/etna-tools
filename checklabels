@@ -1,0 +1,21 @@
+# This script creates two files containing \label and \ref/\eqref labels and
+# displays a diff of them.  Edit DIFF to change the diff command.
+
+DIFF=diff
+
+sed -e 's/\%.*//' -e 's/}/}\n/g' $1 \
+	| fgrep '\label{' \
+	| sed -e 's/^.*\\label{//' -e 's/}.*$//' \
+	| sort | uniq \
+	> label_list.pmet
+
+sed -e 's/\%.*//' -e 's/}/}\n/g' $1 \
+	| fgrep '\ref{
+\eqref{' \
+	| sed -e 's/^.*\\ref{//' -e 's/^.*\\eqref{//' -e 's/}.*$//' \
+	| sort | uniq \
+	> ref_list.pmet
+
+$DIFF label_list.pmet ref_list.pmet
+rm -f label_list.pmet ref_list.pmet
+

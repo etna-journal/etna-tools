@@ -1,0 +1,23 @@
+# This script creates two files containing \bibitem and \cite labels and
+# displays a diff of them.  Edit DIFF to change the diff command.
+# The script does not support \cite commands which extend over two lines.
+
+DIFF=diff
+
+sed -e 's/\%.*//' -e 's/}/}\n/g' $1 \
+	| grep '\\bibitem[\[{]' \
+	| sed -e 's/^.*\\bibitem.*{//' -e 's/}.*$//' -e 's/, */\n/g' \
+	| sort | uniq \
+	| sed -e '/^ *$/d' \
+	> bibitem_list.pmet
+
+sed -e 's/\%.*//' -e 's/}/}\n/g' $1 \
+	| grep '\\cite[\[{]' \
+	| sed -e 's/^.*\\cite.*{//' -e 's/}.*$//' -e 's/, */\n/g' \
+	| sort | uniq \
+	| sed -e '/^ *$/d' \
+	> cite_list.pmet
+
+$DIFF bibitem_list.pmet cite_list.pmet
+rm -f bibitem_list.pmet cite_list.pmet
+

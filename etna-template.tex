@@ -1,0 +1,62 @@
+\documentclass[final]{siamltex}
+
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+
+\usepackage[
+  letterpaper=true,
+  colorlinks=true,
+  linkcolor=red,
+  citecolor=red,
+  pdfpagemode=None]{hyperref}
+
+\let\savedthebibliography=\thebibliography
+\usepackage[square,comma,numbers,sort&compress]{natbib}
+\let\thebibliography=\savedthebibliography
+
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+
+\def\cvd{~\vbox{\hrule\hbox{%
+    \vrule height1.3ex\hskip0.8ex\vrule}\hrule } }
+
+\title{Title goes here\thanks{
+    Received January 31, 2008.
+    Accepted April 21, 2008.
+    Published online on XXX, 2008.
+    Recommended by Lothar Reichel.
+}}
+
+\author{Anne Author\thanks{Address 
+    (\texttt(\{aauthor,bcoauthor\}@somwhere.edu)}
+  \and Bob Coauthor\footnotemark[2]}
+
+\begin{document}
+
+\maketitle
+\input eheader.tex
+
+\begin{abstract}
+\end{abstract}
+
+\begin{keywords}
+Some words
+\end{keywords}
+
+\begin{AMS}
+65F15
+\end{AMS}
+
+\pagestyle{myheadings}
+\thispagestyle{plain} \markboth{A. AUTHOR AND B. COAUTHOR}{SHORT TITLE}
+
+% Paper body
+
+\bibliographystyle{siam}
+\bibliography{biblio}
+\end{document}
+
+
