@@ -1,3 +1,4 @@
+#!/bin/sh
 # This script creates two files containing \bibitem and \cite labels and
 # displays a diff of them.  Edit DIFF to change the diff command.
 # The script does not support \cite commands which extend over two lines.
@@ -20,4 +21,3 @@ sed -e 's/\%.*//' -e 's/}/}\n/g' $1 \
 
 $DIFF bibitem_list.pmet cite_list.pmet
 rm -f bibitem_list.pmet cite_list.pmet
-

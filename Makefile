@@ -6,7 +6,7 @@ PAGEHI=xx
 YEAR=2008
 
 PDF=$(BASENAME).pdf
-SRC=	$(BASENAME).tex $(BASENAME).ps $(BASENAME).pdf \
+SRC=$(BASENAME).tex $(BASENAME).ps $(BASENAME).pdf \
 	Makefile \
 	eheader.tex \
 	LetterForCopyrightForm.txt Copyright.tex Copyright.pdf \

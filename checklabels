@@ -1,3 +1,4 @@
+#!/bin/sh
 # This script creates two files containing \label and \ref/\eqref labels and
 # displays a diff of them.  Edit DIFF to change the diff command.
 
